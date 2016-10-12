@@ -33,38 +33,63 @@ class Country
 
 	def countryName 
 	 # give the country name.
+		@countryname = "India"
 	end
 end
 
-class City
+class City < Country
 	def initialize
 		puts "This is the City"
 	end
 
+	def cityName
+		@cityname = "Mysore"
+	end
 	# define cityName  --> give the city name
 end
 
 
-class Address < Country
+class Address < City
 	def initialize
 		puts "This is my address."
+	end
+
+	def streetAddress
+		@streetaddress = "#96, Railway Layout, Vijaynagar"
 	end
 
 	# define completeAddress --> complete address. 
 
 end
 
-class Number < City
+class Number < Address
 	def initialize
 		puts "This is my address."
 	end
 
-	# define streetAddress --> '#96, Railway Layout, Vijaynagar'
+
+	def dispAddress
+		countryName
+		cityName
+		streetAddress
+		puts "countryName -> #{@countryname} "
+		puts "cityName -> #{@cityname}" 
+		puts "streetAddress -> #{@streetaddress}"
+		# print @streetaddress, @cityname, @countryname 
+	end
 
 	def completeAddress
-		puts streetAddress cityName countryName 
+		
+		puts "completeAddress -> #{@streetaddress}, #{@cityname}, #{@countryname}" 
 	end
 end
+
+
+obj1 = Number.new
+
+obj1.dispAddress
+obj1.completeAddress
+
 
 
 

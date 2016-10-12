@@ -5,18 +5,28 @@
 
 class Company
 
-  def initialize(list)
-  end
+	def initialize(list)
+		@company = {
+		"qwinix" => "mysore",
+		"infosys" => "mys",
+		"pivotal" => "loc1",
+		"comp1" => "loc2",
+		"comp2" => "loc3",
+		"comp3" => "loc4",
+		"comp4" => "loc5",
+		"comp5" => "loc6",
+		"comp6" => "loc7",
+		"comp7" => "loc8"
+		}
 
-  
-
+		@company[list]
+		puts "#{list} is located at #{@company[list]}"
+	end
 end
 
-@Company = {
-  qwinix: value,
-  infosys: => value,
-  "pivotal": value
-}
 
-company_name = 'Input From the user'
-location = Company.new(company_name)
+
+puts 'Input From the user'
+company_name = gets
+location = Company.new(company_name.chomp)
+#puts location

@@ -21,7 +21,7 @@
 
 class Message
 	def initialize
-		puts "This is a Messaging app"
+		# puts "This is a Messaging app"
 	end
 
 	# define sendPersonalMessage which calls the personalChat()
@@ -53,15 +53,23 @@ class User < Message
 	end
 
 	def sendSecureMessage
-		secureChat("This is confidential")
+		obj = Message.new
+		obj.secureChat("This is confidential")
 	end
 
 	def sendPersonalMessage
-		personalChat("Hi, how are you?")
+		obj = Message.new
+		obj.personalChat("Hi, how are you?")
 	end
 end
 
 
 
 client = User.new
-
+client.groupChat("Hi Friends")
+client.sendPersonalMessage
+begin
+	client.sendSecureMessage
+rescue => e
+	puts "client should not be able to call the secureChat "
+end
